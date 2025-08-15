@@ -1,0 +1,77 @@
+'use client'
+import Link from "next/link";
+import Image from 'next/image';
+
+const Navbar = () => {
+    return (
+        <div className="relative bg-gray-900">
+            {/* Background Image */}
+            {/* <div className="inset-0 -z-10">
+                <Image
+                    src="/bg.jpg"
+                    alt="Website background"
+                    fill
+                    className="object-cover"
+                    quality={80}
+                    priority
+                />
+            </div> */}
+
+            {/* Navbar */}
+            <nav className="relative h-20 w-full">
+                <div className=" flex justify-between items-center h-full px-4 lg:px-15 text-white">
+                    <Link href={'/'} className="text-xl font-bold cursor-pointer">
+                        MY BLOG
+                    </Link>
+
+                    {/* Navigation Links */}
+                    <ul className="flex gap-2 md:gap-8 items-center">
+                        <li>
+                            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
+                        </li>
+                        <li>
+                            <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+                        </li>
+                        <li>
+                            <Link href="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            {/* Main Content */}
+            <main className="relative pt-20 px-4 lg:px-15 text-white container mx-auto flex flex-col lg:flex-row items-center gap-8">
+                {/* Text Content */}
+                <div className="p-8 flex-1">
+                    <h1 className="text-4xl font-bold mb-4">Welcome to My Personal Blog Portfolio</h1>
+                    <p className="text-lg mb-6">
+                        This platform showcases my journey as a developer, featuring both my latest projects and earlier work that document my growth and experience in the field.
+                    </p>
+
+                    <div className="flex gap-4">
+                        <button className="uppercase px-6 py-2 bg-white text-black hover:bg-gray-200 transition-colors">
+                            About Me
+                        </button>
+                    </div>
+                </div>
+
+                {/* Image Placeholder */}
+                <div className="flex-1 flex justify-center p-4 md:p-8">
+                    <div className="w-64 h-64 md:w-100 md:h-100 rounded-full bg-gray-400 bg-opacity-30 border-2 border-white flex items-center justify-center overflow-hidden">
+                        <img
+                            src="/Profile.jpg"
+                            alt="Profile picture"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                                e.currentTarget.src = 'https://via.placeholder.com/400';
+                                e.currentTarget.alt = 'Placeholder image';
+                            }}
+                        />
+                    </div>
+                </div>
+            </main>
+        </div>
+    );
+}
+
+export default Navbar;
