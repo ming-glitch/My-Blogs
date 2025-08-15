@@ -5,8 +5,8 @@ import Image from 'next/image';
 const Navbar = () => {
     return (
         <div className="relative bg-gray-900">
-            {/* Background Image */}
-            {/* <div className="inset-0 -z-10">
+            {/* Background Image - Uncomment if needed */}
+            {/* <div className="inset-0 -z-10 absolute">
                 <Image
                     src="/bg.jpg"
                     alt="Website background"
@@ -14,33 +14,56 @@ const Navbar = () => {
                     className="object-cover"
                     quality={80}
                     priority
+                    sizes="100vw"
                 />
             </div> */}
 
             {/* Navbar */}
             <nav className="relative h-20 w-full">
-                <div className=" flex justify-between items-center h-full px-4 lg:px-15 text-white">
-                    <Link href={'/'} className="text-xl font-bold cursor-pointer">
+                <div className="flex justify-between items-center h-full px-4 lg:px-15 text-white">
+                    <Link
+                        href="/"
+                        className="text-xl font-bold cursor-pointer"
+                        aria-label="Home"
+                    >
                         MY BLOG
                     </Link>
 
                     {/* Navigation Links */}
                     <ul className="flex gap-2 md:gap-8 items-center">
                         <li>
-                            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
+                            <Link
+                                href="/"
+                                className="hover:text-gray-300 transition-colors"
+                                aria-label="Home"
+                            >
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+                            <Link
+                                href="/about"
+                                className="hover:text-gray-300 transition-colors"
+                                aria-label="About"
+                            >
+                                About
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
+                            <Link
+                                href="/contact"
+                                className="hover:text-gray-300 transition-colors"
+                                aria-label="Contact"
+                            >
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                 </div>
             </nav>
 
-            {/* Main Content */}
-            <main className="relative pt-20 px-4 lg:px-15 text-white container mx-auto flex flex-col lg:flex-row items-center gap-8">
+            {/* Hero Section */}
+            <div className="relative pt-20 px-4 lg:px-15 text-white container mx-auto flex flex-col lg:flex-row items-center gap-8">
                 {/* Text Content */}
                 <div className="p-8 flex-1">
                     <h1 className="text-4xl font-bold mb-4">Welcome to My Personal Blog Portfolio</h1>
@@ -49,27 +72,34 @@ const Navbar = () => {
                     </p>
 
                     <div className="flex gap-4">
-                        <button className="uppercase px-6 py-2 bg-white text-black hover:bg-gray-200 transition-colors">
+                        <Link
+                            href="/about"
+                            className="uppercase px-6 py-2 bg-white text-black hover:bg-gray-200 transition-colors inline-block"
+                            aria-label="Learn more about me"
+                        >
                             About Me
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
-                {/* Image Placeholder */}
+                {/* Profile Image */}
                 <div className="flex-1 flex justify-center p-4 md:p-8">
                     <div className="w-64 h-64 md:w-100 md:h-100 rounded-full bg-gray-400 bg-opacity-30 border-2 border-white flex items-center justify-center overflow-hidden">
-                        <img
+                        <Image
                             src="/Profile.jpg"
-                            alt="Profile picture"
+                            alt="Ming Lama's profile picture"
+                            width={400}
+                            height={400}
                             className="w-full h-full object-cover"
+                            priority
                             onError={(e) => {
                                 e.currentTarget.src = 'https://via.placeholder.com/400';
-                                e.currentTarget.alt = 'Placeholder image';
+                                e.currentTarget.alt = 'Default placeholder image';
                             }}
                         />
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     );
 }

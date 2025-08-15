@@ -3,27 +3,27 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <main className="bg-purple-100">
-
       <Navbar />
+
       {/* About Me */}
-      <div className=" bg-white py-12">
+      <div className="bg-white py-12">
         <section className="container mx-auto pt-10 px-4 md:px-22">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Text Content */}
             <div className="flex flex-col gap-4">
               <h2 className="font-medium text-3xl">About Me</h2>
               <p className="font-medium">
-                As an aspiring web developer with three months of hands-on experience, I've already built several personal projects that demonstrate my growing skills in this field.
+                As an aspiring web developer with three months of hands-on experience, I&apos;ve already built several personal projects that demonstrate my growing skills in this field.
               </p>
               <p>
-                My name is Ming Lama, a passionate beginner in web development dedicated to continuous learning. I specialize in front-end technologies and enjoy transforming ideas into functional, user-friendly websites. Through my journey so far, I've developed a strong foundation in HTML, CSS, JavaScript, and modern frameworks while constantly expanding my knowledge through practice and experimentation.
+                My name is Ming Lama, a passionate beginner in web development dedicated to continuous learning. I specialize in front-end technologies and enjoy transforming ideas into functional, user-friendly websites. Through my journey so far, I&apos;ve developed a strong foundation in HTML, CSS, JavaScript, and modern frameworks while constantly expanding my knowledge through practice and experimentation.
               </p>
             </div>
 
@@ -37,6 +37,7 @@ export default function Home() {
                   className="object-cover"
                   quality={90}
                   priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -46,7 +47,6 @@ export default function Home() {
 
       {/* Projects */}
       <div className="pt-16">
-
         {/* heading */}
         <div className="flex flex-col gap-6 justify-center items-center text-center">
           <h2 className="font-medium text-2xl">
@@ -63,18 +63,19 @@ export default function Home() {
         {/* Cards */}
         <section className="container mx-auto pt-10 px-4 md:px-22 p-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
             <div className="relative group rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 w-78">
-              <a
+              <Link
                 href="https://weather-app-ochre-mu-10.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
                 <div className="relative h-48 bg-gray-100">
-                  <img
+                  <Image
                     src="/project1-screenshot.png"
-                    alt="Project 1 preview"
+                    alt="Weather App Preview"
+                    width={800}
+                    height={450}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 hover:bg-gray-400 bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
@@ -91,12 +92,12 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
 
               {/* Description */}
               <div className="p-4 relative">
                 <div className={`text-gray-600 overflow-hidden ${isExpanded ? 'max-h-full' : 'max-h-[3.6em]'}`}>
-                  <h3 className=" font-medium text-lg">Weather App</h3>
+                  <h3 className="font-medium text-lg">Weather App</h3>
                   <p>
                     My Weather App provides real-time forecasts with a clean, intuitive interface. Built with React.js and Tailwind CSS, it fetches live data from the OpenWeather API to display current conditions, 5-day forecasts, and severe weather alerts. The app features location detection, temperature unit conversion, and responsive design that works seamlessly across all devices.
                   </p>
@@ -109,35 +110,9 @@ export default function Home() {
                 </button>
               </div>
             </div>
-
           </div>
         </section>
-
       </div>
-
-      {/* Visttors thoughts */}
-      {/* <div className=" p-8 pt-16 bg-white"> */}
-
-      {/* Question to visitors */}
-      {/* <div className="flex flex-col gap-6 justify-center items-center text-center">
-          <h2 className="font-medium text-2xl">
-            What Do You{" "}
-            <span className="relative inline-block">
-              Think
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-current"></span>
-            </span>{" "}
-            of My Projects?
-          </h2>
-          <p className="w-full max-w-[600px] px-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo ipsa a obcaecati aliquid molestiae minima distinctio tempore, esse debitis voluptatum fugit ullam saepe repellat.
-          </p>
-        </div> */}
-
-      <div>
-
-      </div>
-
-      {/* </div> */}
 
       <Footer />
     </main>
