@@ -10,14 +10,19 @@ export default function AdminAddCard() {
         const checkAdminStatus = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('/api/check-admin');
+
+                // API Cache Busting - add timestamp to prevent caching
+                const response = await fetch(`/api/check-admin?t=${Date.now()}`);
 
                 if (!response.ok) {
                     throw new Error('Failed to check admin status');
                 }
 
                 const data = await response.json();
-                setIsAdmin(data.isAdmin);
+
+                // Handle both old and new API response formats
+                const adminStatus = data.isAdmin || false;
+                setIsAdmin(adminStatus);
 
             } catch (error) {
                 console.error('Error checking admin status:', error);
