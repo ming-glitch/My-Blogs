@@ -1,23 +1,44 @@
+// Update your Navbar component
 'use client'
 import Link from "next/link";
 import Image from 'next/image';
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+    const pathname = usePathname();
+
+    // Function to handle smooth scrolling to About section
+    const scrollToAbout = (e) => {
+        // Only execute if we're on the homepage
+        if (pathname === '/') {
+            e.preventDefault();
+            const aboutSection = document.getElementById('about-me');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    };
+
+    // Function to handle smooth scrolling to Footer/Contact section
+    const scrollToContact = (e) => {
+        // Only execute if we're on the homepage
+        if (pathname === '/') {
+            e.preventDefault();
+            const footerSection = document.getElementById('contact-footer');
+            if (footerSection) {
+                footerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    };
+
     return (
         <div className="relative bg-gray-900">
-            {/* Background Image - Uncomment if needed */}
-            {/* <div className="inset-0 -z-10 absolute">
-                <Image
-                    src="/bg.jpg"
-                    alt="Website background"
-                    fill
-                    className="object-cover"
-                    quality={80}
-                    priority
-                    sizes="100vw"
-                />
-            </div> */}
-
             {/* Navbar */}
             <nav className="relative h-20 w-full">
                 <div className="flex justify-between items-center h-full px-4 lg:px-15 text-white">
@@ -42,7 +63,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                href="/about"
+                                href="/#about-me"
+                                onClick={scrollToAbout}
                                 className="hover:text-gray-300 transition-colors"
                                 aria-label="About"
                             >
@@ -51,7 +73,8 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link
-                                href="/contact"
+                                href="/#contact-footer"
+                                onClick={scrollToContact}
                                 className="hover:text-gray-300 transition-colors"
                                 aria-label="Contact"
                             >
@@ -73,7 +96,8 @@ const Navbar = () => {
 
                     <div className="flex gap-4">
                         <Link
-                            href="/about"
+                            href="/#about-me"
+                            onClick={scrollToAbout}
                             className="uppercase px-6 py-2 bg-white text-black hover:bg-gray-200 transition-colors inline-block"
                             aria-label="Learn more about me"
                         >

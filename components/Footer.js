@@ -1,8 +1,20 @@
+// Updated Footer component with WhatsApp and Email links
+'use client'
 import React from 'react';
 
 const Footer = () => {
+    // Function to handle WhatsApp click
+    const handleWhatsAppClick = () => {
+        window.open(`https://wa.me/9779707492060`, '_blank');
+    };
+
+    // Function to handle Email click
+    const handleEmailClick = () => {
+        window.open(`mailto:minglama882@gmail.com`, '_blank');
+    };
+
     return (
-        <footer className='w-full bg-gray-900 text-white'>
+        <footer id="contact-footer" className='w-full bg-gray-900 text-white'>
             <div className='container mx-auto pt-[80px] px-4 sm:px-8 md:px-12 lg:px-18'>
                 <div className='flex flex-wrap -mx-4'>
 
@@ -19,9 +31,12 @@ const Footer = () => {
                             CONTACT
                         </div>
 
-                        <li className='text-sm list-none'>
+                        <li
+                            className='text-sm list-none cursor-pointer hover:text-blue-300 transition-colors'
+                            onClick={handleWhatsAppClick}
+                        >
                             <svg
-                                className="select-none inline-block w-[1em] h-[1em] fill-current text-[1.5rem] transition-[fill] duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] flex-shrink-0 align-middle"
+                                className="select-none inline-block w-[1em] h-[1em] fill-current text-[1.5rem] transition-[fill] duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] flex-shrink-0 align-middle mr-2"
                                 focusable="false"
                                 aria-hidden="true"
                                 viewBox="0 0 24 24"
@@ -31,9 +46,12 @@ const Footer = () => {
                             +977-9707492060
                         </li>
 
-                        <li className='text-sm list-none'>
+                        <li
+                            className='text-sm list-none cursor-pointer hover:text-blue-300 transition-colors'
+                            onClick={handleEmailClick}
+                        >
                             <svg
-                                className="select-none inline-block w-[1em] h-[1em] fill-current text-[1.5rem] transition-[fill] duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] flex-shrink-0 align-middle"
+                                className="select-none inline-block w-[1em] h-[1em] fill-current text-[1.5rem] transition-[fill] duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] flex-shrink-0 align-middle mr-2"
                                 focusable="false"
                                 aria-hidden="true"
                                 viewBox="0 0 24 24"
@@ -49,10 +67,24 @@ const Footer = () => {
                         <h4 className='text-[1rem] font-bold uppercase mb-[10px]'>Quick Links</h4>
                         <ul className='p-0 m-0 mb-[1rem]'>
                             <li className='text-sm py-[3px] list-none'>
-                                <a href="/company-policy">Facebook</a>
+                                <a
+                                    href="https://www.facebook.com/share/16sVmCZXzG/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-blue-300 transition-colors"
+                                >
+                                    Facebook
+                                </a>
                             </li>
                             <li className='text-sm py-[3px] list-none'>
-                                <a href="/associate-policy">LinkedIn</a>
+                                <a
+                                    href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fming-lama-11b649378%3Futm_source%3Dshare%26utm_campaign%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dandroid_app%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExdVJPTkhPMGxocUI5bFRBTgEe1DjrYVHeaEsV-fXJUA19R8KXQXCjQS7hNCcx-zvgOlYNwat33YFr-yT84rs_aem_y7QvNOkVODXubHJhaI76hA&h=AT34wxrrUfSyrfSw3iTHO0LbrokNdYMP30fb8C8QQPHQBRxtNMA35BY-9K77suCz2Xg2whmHBRUVJ-2vu3BtOqeCy53CqlOK3jsB4O6Mq-_9DOdfilcTMeCHwwiqYPp8FO4wvQ"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-blue-300 transition-colors"
+                                >
+                                    LinkedIn
+                                </a>
                             </li>
                         </ul>
                     </div>
